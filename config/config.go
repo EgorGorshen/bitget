@@ -1,14 +1,19 @@
 package config
 
-import "github.com/EgorGorshen/bitget/constants"
+var Config *ConfigType = new(ConfigType)
 
-const (
-	BaseUrl = "https://api.bitget.com"
-	WsUrl   = "wss://ws.bitget.com/mix/v1/stream"
+type ConfigType struct {
+	ApiKey            string
+	SecretKey         string
+	PASSPHRASE        string
+	SignType          string
+	TimeoutMilisecond int
+}
 
-	ApiKey        = ""
-	SecretKey     = ""
-	PASSPHRASE    = ""
-	TimeoutSecond = 30
-	SignType      = constants.SHA256
-)
+func (c *ConfigType) Set(ApiKey, SecretKey, PASSPHRASE, SignType string, TimeoutSecond int) {
+	c.ApiKey = ApiKey
+	c.SecretKey = SecretKey
+	c.PASSPHRASE = PASSPHRASE
+	c.SignType = SignType
+	c.TimeoutMilisecond = TimeoutSecond
+}

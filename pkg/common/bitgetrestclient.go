@@ -21,13 +21,13 @@ type BitgetRestClient struct {
 }
 
 func (p *BitgetRestClient) Init() *BitgetRestClient {
-	p.ApiKey = config.ApiKey
-	p.ApiSecretKey = config.SecretKey
-	p.BaseUrl = config.BaseUrl
-	p.Passphrase = config.PASSPHRASE
-	p.Signer = new(Signer).Init(config.SecretKey)
+	p.ApiKey = config.Config.ApiKey
+	p.ApiSecretKey = config.Config.SecretKey
+	p.BaseUrl = constants.BaseUrl
+	p.Passphrase = config.Config.PASSPHRASE
+	p.Signer = new(Signer).Init(config.Config.SecretKey)
 	p.HttpClient = http.Client{
-		Timeout: time.Duration(config.TimeoutSecond) * time.Second,
+		Timeout: time.Duration(config.Config.TimeoutMilisecond) * time.Millisecond,
 	}
 	return p
 }
@@ -37,10 +37,10 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 	//body, _ := internal.BuildJsonParams(params)
 
 	sign := p.Signer.Sign(constants.POST, uri, params, timesStamp)
-	if constants.RSA == config.SignType {
+	if constants.RSA == config.Config.SignType {
 		sign = p.Signer.SignByRSA(constants.POST, uri, params, timesStamp)
 	}
-	requestUrl := config.BaseUrl + uri
+	requestUrl := constants.BaseUrl + uri
 
 	buffer := strings.NewReader(params)
 	request, err := http.NewRequest(constants.POST, requestUrl, buffer)

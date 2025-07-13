@@ -32,7 +32,7 @@ type BitgetBaseWsClient struct {
 func (p *BitgetBaseWsClient) Init() *BitgetBaseWsClient {
 	p.Connection = false
 	p.AllSuribe = model.NewSet()
-	p.Signer = new(Signer).Init(config.SecretKey)
+	p.Signer = new(Signer).Init(config.Config.SecretKey)
 	p.ScribeMap = make(map[model.SubscribeReq]OnReceive)
 	p.SendMutex = &sync.Mutex{}
 	p.Ticker = time.NewTicker(constants.TimerIntervalSecond * time.Second)
@@ -55,7 +55,7 @@ func (p *BitgetBaseWsClient) Connect() {
 func (p *BitgetBaseWsClient) ConnectWebSocket() {
 	var err error
 	applogger.Info("WebSocket connecting...")
-	p.WebSocketClient, _, err = websocket.DefaultDialer.Dial(config.WsUrl, nil)
+	p.WebSocketClient, _, err = websocket.DefaultDialer.Dial(constants.WsUrl, nil)
 	if err != nil {
 		fmt.Printf("WebSocket connected error: %s\n", err)
 		return
@@ -67,13 +67,13 @@ func (p *BitgetBaseWsClient) ConnectWebSocket() {
 func (p *BitgetBaseWsClient) Login() {
 	timesStamp := internal.TimesStampSec()
 	sign := p.Signer.Sign(constants.WsAuthMethod, constants.WsAuthPath, "", timesStamp)
-	if constants.RSA == config.SignType {
+	if constants.RSA == config.Config.SignType {
 		sign = p.Signer.SignByRSA(constants.WsAuthMethod, constants.WsAuthPath, "", timesStamp)
 	}
 
 	loginReq := model.WsLoginReq{
-		ApiKey:     config.ApiKey,
-		Passphrase: config.PASSPHRASE,
+		ApiKey:     config.Config.ApiKey,
+		Passphrase: config.Config.PASSPHRASE,
 		Timestamp:  timesStamp,
 		Sign:       sign,
 	}

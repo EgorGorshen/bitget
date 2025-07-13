@@ -1,6 +1,8 @@
 package constants
 
 const (
+	BaseUrl = "https://api.bitget.com"
+	WsUrl   = "wss://ws.bitget.com/mix/v1/stream"
 	/*
 	 * http headers
 	 */
