@@ -1,8 +1,8 @@
 package v2
 
 import (
-	"bitget/internal"
-	"bitget/internal/common"
+	"github.com/EgorGorshen/bitget/internal"
+	"github.com/EgorGorshen/bitget/internal/common"
 )
 
 type SpotMarketClient struct {
