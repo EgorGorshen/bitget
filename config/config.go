@@ -1,6 +1,6 @@
 package config
 
-import "bitget/constants"
+import "github.com/EgorGorshen/bitget/constants"
 
 const (
 	BaseUrl = "https://api.bitget.com"

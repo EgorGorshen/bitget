@@ -1,13 +1,14 @@
 package common
 
 import (
-	"bitget/config"
-	"bitget/constants"
-	"bitget/internal"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"strings"
 	"time"
+
+	"github.com/EgorGorshen/bitget/config"
+	"github.com/EgorGorshen/bitget/constants"
+	"github.com/EgorGorshen/bitget/internal"
 )
 
 type BitgetRestClient struct {
@@ -56,7 +57,7 @@ func (p *BitgetRestClient) DoPost(uri string, params string) (string, error) {
 
 	defer response.Body.Close()
 
-	bodyStr, err := ioutil.ReadAll(response.Body)
+	bodyStr, err := io.ReadAll(response.Body)
 	if err != nil {
 		return "", err
 	}
@@ -88,7 +89,7 @@ func (p *BitgetRestClient) DoGet(uri string, params map[string]string) (string, 
 
 	defer response.Body.Close()
 
-	bodyStr, err := ioutil.ReadAll(response.Body)
+	bodyStr, err := io.ReadAll(response.Body)
 	if err != nil {
 		return "", err
 	}
