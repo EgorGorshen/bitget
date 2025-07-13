@@ -15,7 +15,7 @@ func (p *SpotMarketClient) Init() *SpotMarketClient {
 }
 
 func (p *SpotMarketClient) Currencies() (string, error) {
-	params := internal.NewParams()
+	params := make(map[string]string)
 	resp, err := p.BitgetRestClient.DoGet("/api/spot/v1/public/currencies", params)
 	return resp, err
 }

@@ -28,7 +28,7 @@ import (
 func Test_PlaceOrder(t *testing.T) {
   client := new(v1.MixOrderClient).Init()
 
-  params := internal.NewParams()
+  params := make(map[string]string)
   params["symbol"] = "BTCUSDT_UMCBL"
   params["marginCoin"] = "USDT"
   params["side"] = "open_long"
@@ -47,7 +47,7 @@ func Test_PlaceOrder(t *testing.T) {
 func Test_post(t *testing.T) {
   client := new(client.BitgetApiClient).Init()
 
-  params := internal.NewParams()
+  params := make(map[string]string)
   params["symbol"] = "BTCUSDT_UMCBL"
   params["marginCoin"] = "USDT"
   params["side"] = "open_long"
@@ -66,7 +66,7 @@ func Test_post(t *testing.T) {
 func Test_get(t *testing.T) {
   client := new(client.BitgetApiClient).Init()
 
-  params := internal.NewParams()
+  params := make(map[string]string)
   params["productType"] = "umcbl"
 
   resp, err := client.Get("/api/mix/v1/account/accounts", params)
@@ -79,7 +79,7 @@ func Test_get(t *testing.T) {
 func Test_get_with_params(t *testing.T) {
   client := new(client.BitgetApiClient).Init()
 
-  params := internal.NewParams()
+  params := make(map[string]string)
 
   resp, err := client.Get("/api/spot/v1/account/getInfo", params)
   if err != nil {

@@ -2,7 +2,7 @@ package v2
 
 import (
 	"github.com/EgorGorshen/bitget/internal"
-	"github.com/EgorGorshen/bitget/internal/common"
+	"github.com/EgorGorshen/bitget/pkg/common"
 )
 
 type SpotAccountClient struct {
@@ -15,7 +15,7 @@ func (p *SpotAccountClient) Init() *SpotAccountClient {
 }
 
 func (p *SpotAccountClient) Info() (string, error) {
-	params := internal.NewParams()
+	params := make(map[string]string)
 	resp, err := p.BitgetRestClient.DoGet("/api/v2/spot/account/info", params)
 	return resp, err
 }

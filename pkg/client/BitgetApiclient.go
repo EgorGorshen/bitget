@@ -1,8 +1,8 @@
 package client
 
 import (
-	"bitget/internal"
-	"bitget/internal/common"
+	"github.com/EgorGorshen/bitget/internal"
+	"github.com/EgorGorshen/bitget/pkg/common"
 )
 
 type BitgetApiClient struct {

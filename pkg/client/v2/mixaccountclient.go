@@ -2,7 +2,7 @@ package v2
 
 import (
 	"github.com/EgorGorshen/bitget/internal"
-	"github.com/EgorGorshen/bitget/internal/common"
+	"github.com/EgorGorshen/bitget/pkg/common"
 )
 
 type MixAccountClient struct {

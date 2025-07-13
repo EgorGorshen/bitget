@@ -4,9 +4,9 @@ import (
 	"strings"
 
 	"github.com/EgorGorshen/bitget/constants"
-	"github.com/EgorGorshen/bitget/internal/common"
-	"github.com/EgorGorshen/bitget/internal/model"
 	"github.com/EgorGorshen/bitget/logging/applogger"
+	"github.com/EgorGorshen/bitget/pkg/common"
+	"github.com/EgorGorshen/bitget/pkg/model"
 )
 
 type BitgetWsClient struct {

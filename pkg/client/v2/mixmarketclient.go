@@ -1,8 +1,6 @@
 package v2
 
-import (
-	"github.com/EgorGorshen/bitget/internal/common"
-)
+import "github.com/EgorGorshen/bitget/pkg/common"
 
 type MixMarketClient struct {
 	BitgetRestClient *common.BitgetRestClient
