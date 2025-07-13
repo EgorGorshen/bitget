@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/EgorGorshen/bitget/internal/model"
 	"github.com/EgorGorshen/bitget/pkg/client/ws"
+	"github.com/EgorGorshen/bitget/pkg/model"
 )
 
 func TestBitgetWsClient_New(t *testing.T) {

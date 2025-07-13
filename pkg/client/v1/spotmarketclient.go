@@ -1,9 +1,6 @@
 package v1
 
-import (
-	"github.com/EgorGorshen/bitget/internal"
-	"github.com/EgorGorshen/bitget/internal/common"
-)
+import "github.com/EgorGorshen/bitget/pkg/common"
 
 type SpotMarketClient struct {
 	BitgetRestClient *common.BitgetRestClient

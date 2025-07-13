@@ -8,8 +8,8 @@ import (
 	"github.com/EgorGorshen/bitget/config"
 	"github.com/EgorGorshen/bitget/constants"
 	"github.com/EgorGorshen/bitget/internal"
-	"github.com/EgorGorshen/bitget/internal/model"
 	"github.com/EgorGorshen/bitget/logging/applogger"
+	"github.com/EgorGorshen/bitget/pkg/model"
 	"github.com/gorilla/websocket"
 	"github.com/robfig/cron"
 )
