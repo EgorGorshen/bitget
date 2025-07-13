@@ -1,4 +1,4 @@
-module bitget
+module github.com/EgorGorshen/bitget
 
 go 1.17
 
