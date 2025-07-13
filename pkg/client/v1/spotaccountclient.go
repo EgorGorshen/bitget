@@ -1,7 +1,6 @@
 package v1
 
 import (
-	"github.com/EgorGorshen/bitget/internal"
 	"github.com/EgorGorshen/bitget/pkg/common"
 )
 

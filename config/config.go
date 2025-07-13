@@ -10,6 +10,7 @@ type ConfigType struct {
 	TimeoutMilisecond int
 }
 
+// WARNING: next time TimeoutSecond must be mill seconds
 func (c *ConfigType) Set(ApiKey, SecretKey, PASSPHRASE, SignType string, TimeoutSecond int) {
 	c.ApiKey = ApiKey
 	c.SecretKey = SecretKey
